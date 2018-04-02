@@ -86,15 +86,9 @@ class OsmWay : BaseOsm
 
         // Get the data from the attributes
         ID = GetAttribute<ulong>("id", node.Attributes);
-        
-        var check = GetAttribute<bool?>("visible", node.Attributes);
-        if (check == null)
-        {
-            Visible = true;
-        } else
-        {
-            Visible = (bool) check;
-        }
+
+        //Visible = GetAttribute<bool>("visible", node.Attributes);
+        Visible = true;
 
         // Get the nodes
         XmlNodeList nds = node.SelectNodes("nd");

@@ -2,6 +2,7 @@
 using System.Xml;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 /*
     Copyright (c) 2017 Sloan Kelly
@@ -36,34 +37,30 @@ class MapReader : MonoBehaviour
     [HideInInspector]
     public OsmBounds bounds;
 
-    public bool IsReady { get; private set; }
+    public bool IsReady = false;
 
-    private DrawLines drawer;
-
-	//// Use this for initialization
-	//void Start ()
- //   {
-        
- //   }
+    //public Text text;
 
     public void ReadInput(string filePath)
     {
-        IsReady = false;
         nodes = new Dictionary<ulong, OsmNode>();
         ways = new List<OsmWay>();
 
         XmlDocument doc = new XmlDocument();
-        var txtAsset = Resources.Load<TextAsset>(filePath);
-       // Debug.Log(File.ReadAllText(filePath));
-        doc.LoadXml(txtAsset.text);
+        doc.LoadXml(File.ReadAllText(filePath));
+
+        // for testing, loads xml from txt file in unity resources folder
+        //var txtAsset = Resources.Load<TextAsset>(filePath);
+        //doc.LoadXml(txtAsset.text);
+
 
         SetBounds(doc.SelectSingleNode("/osm/bounds"));
         GetNodes(doc.SelectNodes("/osm/node"));
         GetWays(doc.SelectNodes("/osm/way"));
 
-        Debug.Log("successfully parsed data! now drawing");
-
         IsReady = true;
+
+        Debug.Log("successfully parsed data! now drawing");
     }
 
     void GetWays(XmlNodeList xmlNodeList)

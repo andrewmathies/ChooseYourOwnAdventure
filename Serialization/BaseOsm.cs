@@ -38,6 +38,7 @@ class BaseOsm
     protected T GetAttribute<T>(string attrName, XmlAttributeCollection attributes)
     {
         // TODO: We are going to assume 'attrName' exists in the collection
+        // no longer todo?
         var attribute = attributes[attrName];
         if (attribute == null)
             return default(T);

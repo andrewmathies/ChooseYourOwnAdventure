@@ -61,7 +61,7 @@ class OsmNode : BaseOsm
     {
         return new Vector3(node.X, 0, node.Y);
     }
-    
+
     /// <summary>
     /// Constructor.
     /// </summary>
