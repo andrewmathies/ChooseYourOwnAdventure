@@ -1,5 +1,5 @@
 # Map
-Originally I planned to build a "real world" mobile game inspired by choose your own adventure books. However just this demo took 40+ hours of work so I decided to stop after I met a few goals.
+Originally I planned to build a "real world" mobile game (think Pokemon Go) inspired by choose your own adventure books. However just this demo took 40+ hours of work so I decided to stop after I met a few goals.
 
 The app can be downloaded [here.](https://play.google.com/store/apps/details?id=com.awmathie.realWorldGame)
 
